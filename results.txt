@@ -1,0 +1,86 @@
+================================================================================================================================================
+
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go --range=10,1000000 --algorithm=1 --print=false
+Elapsed time: 2m50.21424711s 
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go --range=10,1000000 --algorithm=1 --print=false
+Elapsed time: 2m50.149333563s 
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go --range=10,1000000 --algorithm=2 --print=false
+Elapsed time: 13.404567ms 
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go --range=10,100 --algorithm=2 --print=true
+List of prime numbers: [11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97] 
+Elapsed time: 19.619µs 
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go --range=1,10000000 --algorithm=2 --print=false
+Elapsed time: 395.844323ms 
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go basic.go eratosthenes.go --range=1,10000000 --algorithm=2 --print=false
+Elapsed time: 315.55209ms 
+fertinaz@fertinaz-M4800:~/dev/golang/genPrime$ go run genPrime.go basic.go eratosthenes.go --range=1,10000000 --algorithm=1 --print=false
+
+================================================================================================================================================
+
+[ertinaz@supernova genPrime]$ go run genPrime.go eratosthenes.go basic.go --range=1,1000000 --algorithm=1 --print=false
+Elapsed time: 3m32.745210376s 
+[ertinaz@supernova genPrime]$ go run genPrime.go eratosthenes.go basic.go --range=1,1000000 --algorithm=2 --print=false
+Elapsed time: 18.855929ms 
+[ertinaz@supernova genPrime]$ go run genPrime.go eratosthenes.go basic.go --range=1,10000000 --algorithm=2 --print=false
+Elapsed time: 322.542583ms
+[ertinaz@supernova genPrime]$ go run genPrime.go eratosthenes.go basic.go --range=1,100000000 --algorithm=2 --print=false
+Elapsed time: 6.559772604s 
+[ertinaz@supernova genPrime]$ go run genPrime.go eratosthenes.go basic.go --range=1,1000000000 --algorithm=2 --print=false
+Elapsed time: 2m33.331875969s 
+ 6130 ertinaz   20   0 1118956 985.4m    720 R 199.7  6.2   0:21.43 genPrime                                                                
+
+================================================================================================================================================
+
+[ertinaz@supernova genPrime]$ go run *.go --range=1,1000000 --algorithm=1 --print=false
+Elapsed time: 3m33.004359839s 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,1000000 --algorithm=2 --print=false
+Elapsed time: 18.457522ms 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,1000000 --algorithm=3 --print=false
+Elapsed time: 583.065504ms 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,10000000 --algorithm=2 --print=false
+Elapsed time: 287.434258ms 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,10000000 --algorithm=3 --print=false
+Elapsed time: 15.225350368s 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,100000000 --algorithm=2 --print=false
+Elapsed time: 6.547304733s 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,100000000 --algorithm=3 --print=false
+Elapsed time: 7m0.55877574s 
+[ertinaz@supernova genPrime]$ go run *.go --range=1,1000000000 --algorithm=2 --print=false
+Elapsed time: 1m51.750945883s 
+
+================================================================================================================================================
+
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000 --algorithm=1 --print=false --validate=false
+Elapsed time: 455.096µs for range: [1,1000] using algorithm: 1 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000 --algorithm=2 --print=false --validate=false
+Elapsed time: 15.387µs for range: [1,1000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000 --algorithm=3 --print=false --validate=false
+Elapsed time: 21.735µs for range: [1,1000] using algorithm: 3 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,10000 --algorithm=1 --print=false --validate=false
+Elapsed time: 31.368551ms for range: [1,10000] using algorithm: 1 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,10000 --algorithm=2 --print=false --validate=false
+Elapsed time: 51.973µs for range: [1,10000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,10000 --algorithm=3 --print=false --validate=false
+Elapsed time: 120.733µs for range: [1,10000] using algorithm: 3 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,100000 --algorithm=1 --print=false --validate=false
+Elapsed time: 1.904931105s for range: [1,100000] using algorithm: 1 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,100000 --algorithm=2 --print=false --validate=false
+Elapsed time: 1.022287ms for range: [1,100000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,100000 --algorithm=3 --print=false --validate=false
+Elapsed time: 1.117033ms for range: [1,100000] using algorithm: 3 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000000 --algorithm=2 --print=false --validate=false
+Elapsed time: 13.089701ms for range: [1,1000000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000000 --algorithm=3 --print=false --validate=false
+Elapsed time: 8.458839ms for range: [1,1000000] using algorithm: 3 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,10000000 --algorithm=2 --print=false --validate=false
+Elapsed time: 296.8312ms for range: [1,10000000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,10000000 --algorithm=3 --print=false --validate=false
+Elapsed time: 72.160767ms for range: [1,10000000] using algorithm: 3 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,100000000 --algorithm=2 --print=false --validate=false
+Elapsed time: 6.264112521s for range: [1,100000000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,100000000 --algorithm=3 --print=false --validate=false
+Elapsed time: 664.812896ms for range: [1,100000000] using algorithm: 3 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000000000 --algorithm=2 --print=false --validate=false
+Elapsed time: 1m22.28520617s for range: [1,1000000000] using algorithm: 2 
+fertinaz@fertinaz-M4800:~/Projects/SimScale/src/genPrime$ go run *.go --range=1,1000000000 --algorithm=3 --print=false --validate=false
+Elapsed time: 6.573065163s for range: [1,1000000000] using algorithm: 3 

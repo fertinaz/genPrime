@@ -52,12 +52,12 @@ func basic(l, u int) Primes {
 	return p
 }
 
-func basicPar(pLocal <-chan Primes, l, u int) {
+func basicPar(pLocal chan Primes, l, u int) {
 
 	var isPrime bool
 
 	var p Primes
-	p := make(<-chan Primes)
+	// p := make(chan Primes)
 
 	if l < 3 {
 		p = append(p, 2)
@@ -76,5 +76,5 @@ func basicPar(pLocal <-chan Primes, l, u int) {
 		}
 	}
 
-	pLocal := <-p
+	pLocal <- p
 }

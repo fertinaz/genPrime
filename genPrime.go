@@ -59,7 +59,7 @@ func main() {
 			var primesPerCore Primes
 
 			offset := inFlags.upperBound / ncores
-			pPerCore := make(<-chan Primes, ncores)
+			pPerCore := make(chan Primes, ncores)
 
 			// Launch goroutines on all logical cores
 			for i := 0; i < ncores; i++ {
