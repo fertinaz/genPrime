@@ -8,3 +8,4 @@ results.txt
 Makefile*
 
 go-deps.sh
+genPrime.go.bak
