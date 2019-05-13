@@ -98,11 +98,15 @@ func main() {
 	}
 
 	if inFlags.validate {
-		isValid := validate(primes, inFlags.lowerBound, inFlags.upperBound)
-		if isValid {
-			fmt.Println(" -- Results are correct!")
+		if inFlags.upperBound > 1000000 {
+			fmt.Println(" -- Cannot validate values larger than 1 million!")
 		} else {
-			fmt.Println(" -- Results are not correct!")
+			isValid := validate(primes, inFlags.lowerBound, inFlags.upperBound)
+			if isValid {
+				fmt.Println(" -- Results are correct!")
+			} else {
+				fmt.Println(" -- Results are not correct!")
+			}
 		}
 	}
 }
