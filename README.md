@@ -27,7 +27,7 @@ Note:
 Here are some results produced with a decent mobile workstation:
 
 | n   | number of primes | Basic algorithm | Eratosthenes | Segmentation |
-| --- | --- | --- | ---| --- |
+| --- | ---: | ---: | ---:| ---: |
 | 2   |             25 |     0.000008786 |  0.000002744 |  0.000009336 | 
 | 3   |            168 |     0.000434863 |  0.000028704 |  0.000025178 | 
 | 4   |           1229 |     0.028150275 |  0.000085781 |  0.000124532 | 
