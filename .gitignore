@@ -1,2 +1,10 @@
 # Ignore test results
 test*
+results.txt
+100000.txt
+100000-primes.txt
+
+# Ignore makesfiles
+Makefile*
+
+go-deps.sh
