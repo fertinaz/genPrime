@@ -5,7 +5,7 @@ results.txt
 100000-primes.txt
 
 # Ignore makesfiles
-Makefile*
+Makefile-*
 
 go-deps.sh
 genPrime.go.bak
