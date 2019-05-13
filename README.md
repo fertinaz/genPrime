@@ -15,6 +15,12 @@ This should also help:
 go run *.go -h
 ```
 
+You can also use makefile for building this code in the project directory:
+```
+make
+./genPrime --range=1,200 --algorithm=3 --print=true --validate=false --parallel=false
+```
+
 Note:
 --parallel option doesn't work properly, so you can ignore it at the moment.
 
