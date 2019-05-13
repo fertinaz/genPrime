@@ -90,6 +90,9 @@ func main() {
 	fmt.Printf("Elapsed time: %v for range: [%v,%v] using algorithm: %v \n",
 		time.Since(start), inFlags.lowerBound, inFlags.upperBound, inFlags.algorithm)
 
+	fmt.Printf("\t Number of primes: %v \n", len(primes))
+	fmt.Printf("\t Largest prime: %v \n", primes[len(primes)-1])
+
 	if inFlags.isPrint {
 		printSlice(primes)
 	}

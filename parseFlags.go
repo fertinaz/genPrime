@@ -79,7 +79,7 @@ func parseFlags(inFlags *Flags) {
 	flag.StringVar(&rangeStr, "range", "", defStr)
 
 	defStr = "Specify generation algorithm. 1 for basic, 2 for Sieve of Eratosthenes, 3 for Segmented SoE. Ex: --algorithm=2"
-	algoPtr := flag.Int("algorithm", 1, defStr)
+	algoPtr := flag.Int("algorithm", 2, defStr)
 
 	defStr = "Print results to stdout. Ex: --print=true"
 	printPtr := flag.Bool("print", true, defStr)
