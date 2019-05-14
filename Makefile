@@ -1,7 +1,7 @@
 GOBIN=go
 GOBUILD=${GOBIN} build
 GOCLEAN=${GOBIN} clean
-#GOTEST=${GOBIN} test
+GOTEST=${GOBIN} test
 #GOGET=${GOBIN} get -u -v
 
 APP=genPrime
@@ -9,13 +9,13 @@ APP=genPrime
 all: build
 build: 
 	$(GOBUILD) -o $(APP) -v
+test: 
+	$(GOTEST) -v
 clean: 
 	$(GOCLEAN)
 	rm -f $(APP)
-#
-#test: 
-#	$(GOTEST) -v ./...
-#
+
+
 #run:
 #	$(GOBUILD) -o $(APP) -v ./...
 #	./$(APP)
