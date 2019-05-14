@@ -4,27 +4,28 @@ This piece of code is written for prime number detection in a given range.
 
 To compile and run -- assuming that you have successfully installed GO:
 ```
-go run *.go --range=1,100 --algorithm=1
+go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=1,100 --algorithm=1
 ```
 
 You can also use following command line flags for a more verbose execution:
 ```
-go run *.go --range=1,100 --algorithm=1 --print=true --validate=true --parallel=false
+go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=10,200 --algorithm=1 \
+  --print=true --validate=true --parallel=false
 ```
 
-This should help for Linux like usage warning:
-```
-go run *.go -h
-```
-
-You can also use makefile for building this code in the project directory:
+A more elegant way to build is using makefile:
 ```
 make
 ```
 
 Then you can run binary file:
 ```
-./genPrime --range=1,200 --algorithm=3 --print=true --validate=false --parallel=false
+./genPrime --range=127,845 --algorithm=3
+```
+
+For a Linux like usage warning:
+```
+./genPrime -h
 ```
 
 Additionally, to run some simple tests:
@@ -35,7 +36,7 @@ make test
 Note:
 --parallel option doesn't work properly, so you can ignore it at the moment.
 
-Here are some results produced with a decent mobile workstation:
+Some results produced with a decent mobile workstation:
 
 | n   | number of primes | Basic algorithm | Eratosthenes | Segmentation |
 | --- | ---: | ---: | ---:| ---: |
