@@ -10,5 +10,6 @@ Makefile-*
 go-deps.sh
 
 # Binaries and back-up files
+*.swp
 genPrime
 genPrime.go.bak
