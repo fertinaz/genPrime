@@ -6,11 +6,13 @@ To compile and run -- assuming that you have successfully installed GO:
 ```
 go run *.go --range=1,100 --algorithm=1
 ```
+
 You can also use following command line flags for a more verbose execution:
 ```
 go run *.go --range=1,100 --algorithm=1 --print=true --validate=true --parallel=false
 ```
-This should also help:
+
+This should help for Linux like usage warning:
 ```
 go run *.go -h
 ```
@@ -18,12 +20,16 @@ go run *.go -h
 You can also use makefile for building this code in the project directory:
 ```
 make
-make test
 ```
 
 Then you can run binary file:
 ```
 ./genPrime --range=1,200 --algorithm=3 --print=true --validate=false --parallel=false
+```
+
+Additionally, to run some simple tests:
+```
+make test
 ```
 
 Note:
@@ -42,4 +48,4 @@ Here are some results produced with a decent mobile workstation:
 | 8   |        5761455 |              NA |  6.574295088 |  0.668643781 | 
 | 9   |       50847534 |              NA | 80.710604789 |  7.068193302 | 
 
-Table represents wall clock times in s. for a given range [1, N] where N = 10^n
+Table presents wall clock times in s. for a given range [1, N] where N = 10^n
