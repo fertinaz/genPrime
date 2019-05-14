@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -17,7 +16,7 @@ import (
 	Return:
 		bool: slices are equal or not
 */
-func cmpSlices(pGen []int, pDat []int) bool {
+func cmpSlices(pGen, pDat Primes) bool {
 
 	if (pGen == nil) != (pDat == nil) {
 		return false
@@ -46,7 +45,7 @@ func cmpSlices(pGen []int, pDat []int) bool {
 	Return:
 		bool: results validated or not
 */
-func validate(p []int, l, u int) (validated bool) {
+func validate(p []int, l, u int) (pVals Primes, isEq bool) {
 
 	file, err := os.Open("primes.txt")
 	if err != nil {
@@ -54,13 +53,13 @@ func validate(p []int, l, u int) (validated bool) {
 	}
 	defer file.Close()
 
-	var pVals []int
+	// var pVals []int
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		pValStr := strings.TrimSpace(scanner.Text())
 		pValInt, _ := strconv.Atoi(pValStr)
 		if int(pValInt) >= l && int(pValInt) <= u {
-			pVals = append(pVals, int(pValInt))
+			pVals = append(pVals, pValInt)
 		}
 	}
 
@@ -68,9 +67,9 @@ func validate(p []int, l, u int) (validated bool) {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Primes from database:")
-	printSlice(pVals)
-	validated = cmpSlices(p, pVals)
+	// fmt.Println("Primes from database:")
+	// printSlice(pVals)
+	isEq = cmpSlices(p, pVals)
 
-	return validated
+	return pVals, isEq
 }
