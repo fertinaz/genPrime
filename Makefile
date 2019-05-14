@@ -33,7 +33,3 @@ clean:
 #	$(GOGET) github.com/rogpeppe/godef
 #	$(GOGET) github.com/sqs/goreturns
 #	$(GOGET) golang.org/x/lint/golint
-#
-#build-linux:
-#	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o $(BINARY_UNIX) -v
-
