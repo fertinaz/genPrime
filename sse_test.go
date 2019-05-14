@@ -24,7 +24,7 @@ func TestSse(t *testing.T) {
 		max := 5000
 		l := r.Intn(min)
 		u := r.Intn(max-min) + min
-		fmt.Printf("\t Range: [%v,%v] \n", l, u)
+		fmt.Printf("Range: [%v,%v] \n", l, u)
 
 		// True or false
 		// p := r.Intn(2)
@@ -40,10 +40,19 @@ func TestSse(t *testing.T) {
 		//     printSlice(primes)
 		//	}
 
-		isValid := validate(primes, l, u)
+		var pValidation Primes
+		pValidation, isValid := validate(primes, l, u)
 		if isValid {
+			fmt.Println("Results: ")
+			printSlice(primes)
+
 			fmt.Printf("\t -- Results are correct! \n")
 		} else {
+			fmt.Println("Results: ")
+			printSlice(primes)
+			fmt.Println("Validation: ")
+			printSlice(pValidation)
+
 			fmt.Printf("\t -- Results are not correct! \n")
 		}
 	}
