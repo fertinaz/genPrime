@@ -20,8 +20,8 @@ func TestSse(t *testing.T) {
 	for c := 0; c < ncases; c++ {
 
 		// range = [l, u]
-		min := 30
-		max := 300
+		min := 50
+		max := 5000
 		l := r.Intn(min)
 		u := r.Intn(max-min) + min
 		fmt.Printf("\t Range: [%v,%v] \n", l, u)

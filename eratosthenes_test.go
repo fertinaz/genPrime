@@ -21,7 +21,7 @@ func TestEratothenes(t *testing.T) {
 
 		// range = [l, u]
 		min := 30
-		max := 300
+		max := 1000
 		l := r.Intn(min)
 		u := r.Intn(max-min) + min
 		fmt.Printf("\t Range: [%v,%v] \n", l, u)
