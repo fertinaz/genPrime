@@ -90,22 +90,26 @@ func main() {
 	fmt.Printf("Elapsed time: %v for range: [%v,%v] using algorithm: %v \n",
 		time.Since(start), inFlags.lowerBound, inFlags.upperBound, inFlags.algorithm)
 
-	fmt.Printf("\t Number of primes: %v \n", len(primes))
-	fmt.Printf("\t Largest prime: %v \n", primes[len(primes)-1])
-
 	if inFlags.isPrint {
 		printSlice(primes)
+		fmt.Printf("\t Number of primes: %v \n", len(primes))
+		fmt.Printf("\t Largest prime: %v \n", primes[len(primes)-1])
 	}
 
 	if inFlags.validate {
 		if inFlags.upperBound > 1000000 {
 			fmt.Println(" -- Cannot validate values larger than 1 million!")
 		} else {
-			isValid := validate(primes, inFlags.lowerBound, inFlags.upperBound)
+			var pValidation Primes
+
+			pValidation, isValid := validate(primes, inFlags.lowerBound, inFlags.upperBound)
+			fmt.Println("Validation: ")
+			printSlice(pValidation)
+
 			if isValid {
-				fmt.Println(" -- Results are correct!")
+				fmt.Println("\t -- Results are correct!")
 			} else {
-				fmt.Println(" -- Results are not correct!")
+				fmt.Println("\t -- Results are not correct!")
 			}
 		}
 	}
