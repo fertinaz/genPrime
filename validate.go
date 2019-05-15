@@ -53,7 +53,6 @@ func validate(p []int, l, u int) (pVals Primes, isEq bool) {
 	}
 	defer file.Close()
 
-	// var pVals []int
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		pValStr := strings.TrimSpace(scanner.Text())
@@ -67,8 +66,6 @@ func validate(p []int, l, u int) (pVals Primes, isEq bool) {
 		log.Fatal(err)
 	}
 
-	// fmt.Println("Primes from database:")
-	// printSlice(pVals)
 	isEq = cmpSlices(p, pVals)
 
 	return pVals, isEq
