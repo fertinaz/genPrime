@@ -6,7 +6,7 @@ results.txt
 
 # Ignore makesfiles
 Makefile-*
-
+run-genPrime.sh
 go-deps.sh
 
 # Binaries and back-up files
