@@ -15,7 +15,7 @@ func TestBasic(t *testing.T) {
 	ncases := r.Intn(10) + 1
 	fmt.Printf("Basic -- Number of test cases: %v \n", ncases)
 
-	var primes Primes
+	var pGenerated Primes
 
 	for c := 0; c < ncases; c++ {
 
@@ -26,33 +26,24 @@ func TestBasic(t *testing.T) {
 		u := r.Intn(max-min) + min
 		fmt.Printf("Range: [%v,%v] \n", l, u)
 
-		// True or false
-		// p := r.Intn(2)
-		// v := r.Intn(2)
+		pGenerated = basic(l, u)
 
-		primes = basic(l, u)
-
-		if len(primes) == 0 {
+		if len(pGenerated) == 0 {
 			t.Errorf("Error!")
 		}
 
-		// if p == 1 {
-		//     printSlice(primes)
-		//	}
-
-		var pValidation Primes
-		pValidation, isValid := validate(primes, l, u)
+		// pValidation: list of primes between l and u in primes.txt
+		// isEqual: true if pGenerated and pValidation are equal
+		pValidation, isValid := validate(pGenerated, l, u)
 		if isValid {
 			fmt.Println("Results: ")
-			printSlice(primes)
-
+			printSlice(pGenerated)
 			fmt.Printf("\t -- Results are correct! \n")
 		} else {
 			fmt.Println("Results: ")
-			printSlice(primes)
+			printSlice(pGenerated)
 			fmt.Println("Validation: ")
 			printSlice(pValidation)
-
 			fmt.Printf("\t -- Results are not correct! \n")
 		}
 	}
