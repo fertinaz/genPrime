@@ -13,3 +13,6 @@ go-deps.sh
 *.swp
 genPrime
 genPrime.go.bak
+
+# Local settings
+.vscode/launch.json
