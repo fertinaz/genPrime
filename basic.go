@@ -16,14 +16,12 @@ func checkPrime(num int) bool {
 	return true
 }
 
-/*
-	Function checks numbers between the [l, u] range
-	Input:
-		l: lower bound of the input range -- int
-		u: upper bound of the input range -- int
-	Return:
-		p: List of primes between input range
-*/
+//	Function checks numbers between the [l, u] range
+//	Input:
+//		l: lower bound of the input range -- int
+//		u: upper bound of the input range -- int
+//	Return:
+//		p: List of primes between input range
 func basic(l, u int) Primes {
 
 	var isPrime bool
@@ -50,31 +48,4 @@ func basic(l, u int) Primes {
 	}
 
 	return p
-}
-
-func basicPar(pLocal chan Primes, l, u int) {
-
-	var isPrime bool
-
-	var p Primes
-	// p := make(chan Primes)
-
-	if l < 3 {
-		p = append(p, 2)
-		l = 3
-	}
-
-	if l%2 == 0 {
-		l++
-	}
-
-	for i := l; i <= u; i += 2 {
-		isPrime = checkPrime(i)
-		if isPrime {
-			p = append(p, i)
-			isPrime = false
-		}
-	}
-
-	pLocal <- p
 }
