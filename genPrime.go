@@ -26,8 +26,14 @@ type Flags struct {
 	parallel   bool
 }
 
+var inFlags Flags
+
 func printSlice(s Primes) {
 	fmt.Printf("List of prime numbers: %v \n", s)
+}
+
+func printSubSlice(s Primes) {
+	fmt.Printf("%v", s)
 }
 
 func main() {
@@ -35,7 +41,6 @@ func main() {
 	// Results are written to this slice
 	var primes Primes
 
-	var inFlags Flags
 	parseFlags(&inFlags)
 
 	var ncores int
@@ -56,28 +61,26 @@ func main() {
 			primes = basic(inFlags.lowerBound, inFlags.upperBound)
 		} else {
 
-			var primesPerCore Primes
+			// Some arbitrary number for # of jobs
+			// invoked from the worker pool
+			n := 10
+			jobs := make(chan int, n)
+			results := make(chan Primes, n)
 
-			offset := inFlags.upperBound / ncores
-			pPerCore := make(chan Primes, ncores)
+			delta := inFlags.upperBound / n
+			// delta := (inFlags.upperBound - inFlags.lowerBound) / n
+			// for c := 0; c < ncores; c++ {
+			go worker(jobs, results, delta)
+			//}
 
-			// Launch goroutines on all logical cores
-			for i := 0; i < ncores; i++ {
+			for i := 0; i < n; i++ {
+				jobs <- i
+			}
 
-				// Calculate offset values for each goroutine
-				lOffset := i*offset + 1
-				rOffset := (i + 1) * offset
-				fmt.Printf("Offset values [%v, %v] for core: %v \n", lOffset, rOffset, i)
+			close(jobs)
 
-				go basicPar(pPerCore, lOffset, rOffset)
-				primesPerCore = <-pPerCore
-
-				fmt.Printf("Primes per core: %v", i)
-				printSlice(primesPerCore)
-
-				for j := 0; j < len(primesPerCore); j++ {
-					primes = append(primes, primesPerCore[j])
-				}
+			for j := 0; j < n; j++ {
+				printSlice(<-results)
 			}
 		}
 	case algoEratos:
@@ -97,12 +100,13 @@ func main() {
 	}
 
 	if inFlags.validate {
-		if inFlags.upperBound > 1000000 {
+		largestPrimeInDB := 1000033
+		if inFlags.upperBound > largestPrimeInDB {
 			fmt.Println(" -- Cannot validate values larger than 1 million!")
 		} else {
 			var pValidation Primes
-
 			pValidation, isValid := validate(primes, inFlags.lowerBound, inFlags.upperBound)
+
 			fmt.Println("Validation: ")
 			printSlice(pValidation)
 
