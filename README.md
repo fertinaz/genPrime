@@ -34,7 +34,7 @@ make test
 ```
 
 Note:
---parallel option doesn't work properly, so you can ignore it at the moment.
+--parallel option doesn't work properly, so please ignore it at the moment.
 
 Some results produced with a decent mobile workstation:
 
