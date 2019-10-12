@@ -12,17 +12,18 @@ Assuming that you have successfully installed `GO` in your environment:
 ```
 $ go install
 ```
-This command will compile this source code, and put the binary executable under `$GOPATH/bin`. If `$GOPATH/bin` is added to your `$PATH`, then you should be able to run `genPrime` without specifying its path.
+This command compiles the source code, and puts the binary executable under `$GOPATH/bin`. If `$GOPATH/bin` is added to your `$PATH`, then you should 
+be able to run the command below successfully:
 ```
 $ genPrime --help
 ```
-Alternatively you can try command below which is sloppy and error prone:
+Alternatively you can try this command as well, but it is sloppy and error prone:
 ```
 go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=1,100 --algorithm=1
 ```
 
 ## Run
-A sample command can be found below:
+Sample usage:
 ```
 genPrime --range=10,200 \
   --algorithm=1    \
@@ -30,9 +31,9 @@ genPrime --range=10,200 \
   --validate=true  \
   --parallel=false
 ```
-This execution will use the first algorithm to find the prime numbers between 
-the range between 10 and 200. It'll print the results as a list, and validate 
-them as well. Parallel option is disabled.
+This execution uses the first algorithm to find the prime numbers between 
+the range between 10 and 200. It'll print the results as a list, and 
+validate them as well. Parallel execution is disabled.
 
 Note:
 --parallel option doesn't work properly, so please ignore it at the moment.
@@ -57,4 +58,5 @@ Some results produced with a decent mobile workstation:
 | 8   |        5761455 |              NA |  6.574295088 |  0.668643781 | 
 | 9   |       50847534 |              NA | 80.710604789 |  7.068193302 | 
 
-Table presents wall clock times in s. for a given range [1, N] where N = 10^n
+Table presents wall clock times in seconds for a given range [1, N] 
+where N = 10^n.
