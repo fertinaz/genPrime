@@ -1,14 +1,18 @@
 # genPrime
 
-This piece of code is written for prime number detection in a given range. 
+This small piece of code detects prime numbers in a given range. 
+```
+$ genPrime --range=20,40 --algorithm=1 
+Elapsed time: 3.868µs for range: [20,40] using algorithm: 1 
+List of prime numbers: [23 29 31 37] 
+```
 
 ## Compile and install 
-Assuming that you have successfully installed GO in your environment:
+Assuming that you have successfully installed `GO` in your environment:
 ```
 $ go install
 ```
-This command will compile this source code, and put the binary executable under $GOPATH/bin. If $GOPATH/bin is added to your $PATH, then you should be able to 
-run
+This command will compile this source code, and put the binary executable under `$GOPATH/bin`. If `$GOPATH/bin` is added to your `$PATH`, then you should be able to run `genPrime` without specifying its path.
 ```
 $ genPrime --help
 ```
@@ -18,7 +22,7 @@ go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --r
 ```
 
 ## Run
-A sample execution can be found below:
+A sample command can be found below:
 ```
 genPrime --range=10,200 \
   --algorithm=1    \
@@ -26,16 +30,20 @@ genPrime --range=10,200 \
   --validate=true  \
   --parallel=false
 ```
-
-## Tests
-Additionally, to run some simple tests:
-```
-make test
-```
+This execution will use the first algorithm to find the prime numbers between 
+the range between 10 and 200. It'll print the results as a list, and validate 
+them as well. Parallel option is disabled.
 
 Note:
 --parallel option doesn't work properly, so please ignore it at the moment.
 
+## Tests
+Additionally, to run some simple tests:
+```
+go test -v
+```
+
+## Results
 Some results produced with a decent mobile workstation:
 
 | n   | number of primes | Basic algorithm | Eratosthenes | Segmentation |
