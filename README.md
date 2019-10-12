@@ -8,7 +8,16 @@ List of prime numbers: [23 29 31 37]
 ```
 
 ## Compile and install 
-Assuming that you have successfully installed `GO` in your environment:
+First you need to get the code preferably using `git clone`
+```
+git clone https://github.com/fertinaz/genPrime.git
+```
+Then change directory and go inside the project folder. 
+```
+cd genPrime
+````
+You can now type the following command -- Assuming that you have 
+successfully installed `GO` in your environment:
 ```
 $ go install
 ```
