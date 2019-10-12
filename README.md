@@ -2,32 +2,32 @@
 
 This piece of code is written for prime number detection in a given range. 
 
-To compile and run -- assuming that you have successfully installed GO:
+## Compile and install 
+Assuming that you have successfully installed GO in your environment:
+```
+$ go install
+```
+This command will compile this source code, and put the binary executable under $GOPATH/bin. If $GOPATH/bin is added to your $PATH, then you should be able to 
+run
+```
+$ genPrime --help
+```
+Alternatively you can try command below which is sloppy and error prone:
 ```
 go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=1,100 --algorithm=1
 ```
 
-You can also use following command line flags for a more verbose execution:
+## Run
+A sample execution can be found below:
 ```
-go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=10,200 --algorithm=1 \
-  --print=true --validate=true --parallel=false
-```
-
-A more elegant way to build is using makefile:
-```
-make
-```
-
-Then you can run binary file:
-```
-./genPrime --range=127,845 --algorithm=3
+genPrime --range=10,200 \
+  --algorithm=1    \
+  --print=true     \
+  --validate=true  \
+  --parallel=false
 ```
 
-For a Linux like usage warning:
-```
-./genPrime -h
-```
-
+## Tests
 Additionally, to run some simple tests:
 ```
 make test
