@@ -9,31 +9,10 @@ import (
 // Primes is the list of prime numbers
 type Primes []int
 
-// Algorithm enum
-const (
-	algoBasic  int = 1
-	algoEratos int = 2
-	algoSSE    int = 3
-)
-
-// Flags are the input options provided by the user
-type Flags struct {
-	lowerBound int
-	upperBound int
-	algorithm  int
-	isPrint    bool
-	validate   bool
-	parallel   bool
-}
-
 var inFlags Flags
 
 func printSlice(s Primes) {
 	fmt.Printf("List of prime numbers: %v \n", s)
-}
-
-func printSubSlice(s Primes) {
-	fmt.Printf("%v", s)
 }
 
 func main() {
