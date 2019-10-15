@@ -8,40 +8,42 @@ List of prime numbers: [23 29 31 37]
 ```
 
 ## Compile and install 
-First you need to get the code preferably using `git clone`
+First you need to get the code preferably using `git clone`:
 ```
-git clone https://github.com/fertinaz/genPrime.git
+$ git clone https://github.com/fertinaz/genPrime.git
 ```
-Then change directory and go inside the project folder. 
+Then change directory and go inside the project folder:
 ```
-cd genPrime
+$ cd genPrime
 ````
 You can now type the following command -- Assuming that you have 
 successfully installed `GO` in your environment:
 ```
 $ go install
 ```
-This command compiles the source code, and puts the binary executable under `$GOPATH/bin`. If `$GOPATH/bin` is added to your `$PATH`, then you should 
-be able to run the command below successfully:
+This command compiles the source code, and puts binary executable 
+under `$GOPATH/bin`. If `$GOPATH/bin` is added to your `$PATH`, then 
+you should be able to run the command below successfully:
 ```
 $ genPrime --help
 ```
-Alternatively you can try this command as well, but it is sloppy and error prone:
+Alternatively you can try following command as well, but it is sloppy and 
+error prone:
 ```
-go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=1,100 --algorithm=1
+$ go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=1,100 --algorithm=1
 ```
 
 ## Run
 Sample usage:
 ```
-genPrime --range=10,200 \
+$ genPrime --range=10,200 \
   --algorithm=1    \
   --print=true     \
   --validate=true  \
   --parallel=false
 ```
 This execution uses the first algorithm to find the prime numbers between 
-the range between 10 and 200. It'll print the results as a list, and 
+the range between 10 and 200. It'll print results as a list, and 
 validate them as well. Parallel execution is disabled.
 
 Note:
@@ -50,7 +52,7 @@ Note:
 ## Tests
 Additionally, to run some simple tests:
 ```
-go test -v
+$ go test -v
 ```
 
 ## Results
