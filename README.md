@@ -33,15 +33,26 @@ default values.
 ```
 Usage of genPrime:
   -algorithm int
-        Specify generation algorithm. 1 for basic, 2 for Sieve of Eratosthenes, 3 for Segmented SoE. Ex: --algorithm=3. Default is 2. (default 2)
+        Specify generation algorithm. 
+                1 for basic. 
+                2 for Sieve of Eratosthenes.
+                3 for Segmented SoE. 
+                Ex: --algorithm=3. (default 2)
   -parallel
-        Parallel execution. Ex: --parallel=true. Default is false.
+        Parallel execution. 
+                Ex: --parallel=true. 
+                Default is false.
   -print
-        Print results to stdout. Ex: --print=true. Default is false.
+        Print results to stdout. 
+                Ex: --print=true. 
+                Default is false.
   -range string
-        Input range should be non-negative integers. Ex: --range=1,100
+        Input range should be non-negative integers. 
+                Ex: --range=1,100
   -validate
-        Validate results. Ex: --validate=true. Default is false.
+        Validate results. 
+                Ex: --validate=true. 
+                Default is false.
 ```
 
 ## Run
