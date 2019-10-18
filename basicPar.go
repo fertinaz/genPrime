@@ -6,10 +6,10 @@ func worker(jobs <-chan int, results chan<- Primes, d int) {
 	}
 }
 
-// Concurrent version of the basic algorithm
-// Input:
+// 	Concurrent version of the basic algorithm
+// 	Input:
 //      n: job (sort of) rank from the worker pool
-// Return:
+// 	Return:
 // 		p: list of primes in the certain range of this job
 func basicPar(n, d int) Primes {
 
