@@ -14,6 +14,7 @@ type Flags struct {
 	upperBound int
 	algorithm  int
 	isPrint    bool
+	measure    bool
 	validate   bool
 	parallel   bool
 }
@@ -99,6 +100,11 @@ func parseFlags(inFlags *Flags) {
 	Ex: --algorithm=3.`
 	algoPtr := flag.Int("algorithm", 2, defStr)
 
+	defStr = `Measure wall clock time. 
+	Ex: --measure=true. 
+	Default is false.`
+	measurePtr := flag.Bool("measure", false, defStr)
+
 	defStr = `Print results to stdout. 
 	Ex: --print=true. 
 	Default is false.`
@@ -109,7 +115,7 @@ func parseFlags(inFlags *Flags) {
 	Default is false.`
 	validPtr := flag.Bool("validate", false, defStr)
 
-	defStr = `Parallel execution. 
+	defStr = `Enable parallel execution. 
 	Ex: --parallel=true. 
 	Default is false.`
 	parPtr := flag.Bool("parallel", false, defStr)
@@ -119,6 +125,7 @@ func parseFlags(inFlags *Flags) {
 	inFlags.lowerBound, inFlags.upperBound = getRange(rangeStr)
 	inFlags.algorithm = getAlgorithm(algoPtr)
 	inFlags.isPrint = *printPtr
+	inFlags.measure = *measurePtr
 	inFlags.validate = *validPtr
 	inFlags.parallel = *parPtr
 }

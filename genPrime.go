@@ -26,8 +26,17 @@ func main() {
 		ncores = 1
 	}
 
+	// Print measured time
+	fmt.Printf("Runing genPrime in the range: [%v,%v] using algorithm: %v \n",
+		inFlags.lowerBound,
+		inFlags.upperBound,
+		inFlags.algorithm)
+
 	// Start measuring
-	start := time.Now()
+	var start time.Time
+	if inFlags.measure {
+		start = time.Now()
+	}
 
 	// Run prime number detection
 	switch inFlags.algorithm {
@@ -65,16 +74,14 @@ func main() {
 		primes = sse(inFlags.lowerBound, inFlags.upperBound)
 	}
 
-	// Print measured time
-	fmt.Printf("Elapsed time: %v for range: [%v,%v] using algorithm: %v \n",
-		time.Since(start),
-		inFlags.lowerBound,
-		inFlags.upperBound,
-		inFlags.algorithm)
-
 	// Print brief information about results
 	fmt.Printf("\t Number of primes: %v \n", len(primes))
 	fmt.Printf("\t Largest prime: %v \n", primes[len(primes)-1])
+
+	// Print measured time
+	if inFlags.measure {
+		fmt.Printf("\t Results found in %v \n", time.Since(start))
+	}
 
 	// Print primes found
 	if inFlags.isPrint {
