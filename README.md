@@ -22,7 +22,7 @@ successfully installed `GO` in your environment:
 ```
 $ go install
 ```
-This command compiles the source code, and puts binary executable 
+Command above compiles the source code, and puts binary executable 
 under `$GOPATH/bin`. If `$GOPATH/bin` is added to your `$PATH`, then 
 you should be able to run the command below successfully:
 ```
@@ -54,6 +54,8 @@ Usage of genPrime:
                 Ex: --validate=true. 
                 Default is false.
 ```
+Alternatively, you can use `go build` which compiles the code and leaves the resulting binary executable in the project directory. If you don't want to use `$GOPATH/bin` for some reason, you can stick to `go build` rather than 
+`go install`.
 
 ## Run
 Sample usage in the shortest form:
