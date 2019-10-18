@@ -87,19 +87,31 @@ func getAlgorithm(aPtr *int) (a int) {
 func parseFlags(inFlags *Flags) {
 
 	var rangeStr string
-	defStr := "Input range should be non-negative integers. Ex: --range=1,100"
+
+	defStr := `Input range should be non-negative integers. 
+	Ex: --range=1,100`
 	flag.StringVar(&rangeStr, "range", "", defStr)
 
-	defStr = "Specify generation algorithm. 1 for basic, 2 for Sieve of Eratosthenes, 3 for Segmented SoE. Ex: --algorithm=3. Default is 2."
+	defStr = `Specify generation algorithm. 
+	1 for basic. 
+	2 for Sieve of Eratosthenes.
+	3 for Segmented SoE. 
+	Ex: --algorithm=3.`
 	algoPtr := flag.Int("algorithm", 2, defStr)
 
-	defStr = "Print results to stdout. Ex: --print=true. Default is false."
+	defStr = `Print results to stdout. 
+	Ex: --print=true. 
+	Default is false.`
 	printPtr := flag.Bool("print", false, defStr)
 
-	defStr = "Validate results. Ex: --validate=true. Default is false."
+	defStr = `Validate results. 
+	Ex: --validate=true. 
+	Default is false.`
 	validPtr := flag.Bool("validate", false, defStr)
 
-	defStr = "Parallel execution. Ex: --parallel=true. Default is false."
+	defStr = `Parallel execution. 
+	Ex: --parallel=true. 
+	Default is false.`
 	parPtr := flag.Bool("parallel", false, defStr)
 
 	flag.Parse()
