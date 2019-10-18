@@ -2,9 +2,10 @@
 
 This small piece of code detects prime numbers in a given range. 
 ```
-$ genPrime --range=20,40 --algorithm=1 
-        Elapsed time: 3.868µs for range: [20,40] using algorithm: 1 
-        List of prime numbers: [23 29 31 37] 
+$ genPrime --range=20,40
+Elapsed time: 7.316µs for range: [20,40] using algorithm: 2 
+        Number of primes: 4 
+        Largest prime: 37 
 ```
 
 ## Compile and install 
@@ -46,23 +47,40 @@ Usage of genPrime:
 ## Run
 Sample usage in the shortest form:
 ```
-$ genPrime -range=35,75 
+$ genPrime --range=35,75 
 Elapsed time: 6.316µs for range: [35,75] using algorithm: 2 
         Number of primes: 10 
         Largest prime: 73 
 ```
+This command executes `genPrime` using the second algorithm which
+is the Sieve of Eratosthenes. 
 
-One can specify other options as well:
+Flags can be specified both with a single dash `-` or double dash `--`. 
 ```
-$ genPrime --range=10,200 \
-  --algorithm=1    \
-  --print=true     \
-  --validate=true  \
-  --parallel=false
+$ genPrime -range=10,30
+Elapsed time: 5.19µs for range: [10,30] using algorithm: 2 
+        Number of primes: 6 
+        Largest prime: 29 
 ```
-This execution uses the first algorithm to find the prime numbers between 
-the range between 10 and 200. It'll print results as a list, and 
-validate them as well. Parallel execution is disabled.
+
+An execution with a complete set of flags:
+```
+$ genPrime -range=40,80 -algorithm=3 -print -validate --parallel=false
+Elapsed time: 19.578µs for range: [40,80] using algorithm: 3 
+         Number of primes: 10 
+         Largest prime: 79 
+Results: 
+         List of prime numbers: [41 43 47 53 59 61 67 71 73 79] 
+Validation: 
+         List of prime numbers: [41 43 47 53 59 61 67 71 73 79] 
+-- Results are correct!
+```
+This execution uses the third algorithm (Segmented Sieve of Eratosthenes) 
+to find the prime numbers in the range between 40 and 80. 
+Since `-print` option is provided it'll print the whole list of results. 
+Those results are compared against the hardcoded list of primes because
+`-validate` option is enabled. Parallel execution is disabled explicitly
+which is the default setting anyway.
 
 Note:
 --parallel option doesn't work properly, so please ignore it at the moment.
