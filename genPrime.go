@@ -11,10 +11,6 @@ type Primes []int
 
 var inFlags Flags
 
-func printSlice(s Primes) {
-	fmt.Printf("List of prime numbers: %v \n", s)
-}
-
 func main() {
 
 	// Results are written to this slice
@@ -63,36 +59,47 @@ func main() {
 			}
 		}
 	case algoEratos:
-		primes = eratosthenes(inFlags.lowerBound, inFlags.upperBound)
+		primes = eratosthenes(inFlags.lowerBound,
+			inFlags.upperBound)
 	case algoSSE:
 		primes = sse(inFlags.lowerBound, inFlags.upperBound)
 	}
 
 	// Print measured time
 	fmt.Printf("Elapsed time: %v for range: [%v,%v] using algorithm: %v \n",
-		time.Since(start), inFlags.lowerBound, inFlags.upperBound, inFlags.algorithm)
+		time.Since(start),
+		inFlags.lowerBound,
+		inFlags.upperBound,
+		inFlags.algorithm)
 
+	// Print brief information about results
+	fmt.Printf("\t Number of primes: %v \n", len(primes))
+	fmt.Printf("\t Largest prime: %v \n", primes[len(primes)-1])
+
+	// Print primes found
 	if inFlags.isPrint {
+		fmt.Println("Results: ")
 		printSlice(primes)
-		fmt.Printf("\t Number of primes: %v \n", len(primes))
-		fmt.Printf("\t Largest prime: %v \n", primes[len(primes)-1])
 	}
 
+	// Check results
 	if inFlags.validate {
 		largestPrimeInDB := 1000033
 		if inFlags.upperBound > largestPrimeInDB {
 			fmt.Println(" -- Cannot validate values larger than 1 million!")
 		} else {
 			var pValidation Primes
-			pValidation, isValid := validate(primes, inFlags.lowerBound, inFlags.upperBound)
+			pValidation, isValid := validate(primes,
+				inFlags.lowerBound,
+				inFlags.upperBound)
 
 			fmt.Println("Validation: ")
 			printSlice(pValidation)
 
 			if isValid {
-				fmt.Println("\t -- Results are correct!")
+				fmt.Println("-- Results are correct!")
 			} else {
-				fmt.Println("\t -- Results are not correct!")
+				fmt.Println("-- Results are not correct!")
 			}
 		}
 	}
