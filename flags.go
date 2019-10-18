@@ -94,7 +94,7 @@ func parseFlags(inFlags *Flags) {
 	algoPtr := flag.Int("algorithm", 2, defStr)
 
 	defStr = "Print results to stdout. Ex: --print=true. Default is false."
-	printPtr := flag.Bool("print", true, defStr)
+	printPtr := flag.Bool("print", false, defStr)
 
 	defStr = "Validate results. Ex: --validate=true. Default is false."
 	validPtr := flag.Bool("validate", false, defStr)
