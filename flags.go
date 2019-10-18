@@ -62,9 +62,9 @@ func getRange(str string) (l, u int) {
 	return l, u
 }
 
-//	Function reads input for the algorithm flag and
-//  returns associated algorithm type.
-//	Exit if the input entered by the user is anything other than 1, 2 or 3.
+// Function reads input for the algorithm flag and
+// returns associated algorithm type.
+// Exit if the input entered by the user is anything other than 1, 2 or 3.
 func getAlgorithm(aPtr *int) (a int) {
 
 	switch *aPtr {
@@ -82,24 +82,24 @@ func getAlgorithm(aPtr *int) (a int) {
 	return a
 }
 
-//	Function reads command line arguments and parses them.
-//	Then fills the struct through its pointer.
+// Function reads command line arguments and parses them.
+// Then fills the struct through its pointer.
 func parseFlags(inFlags *Flags) {
 
 	var rangeStr string
 	defStr := "Input range should be non-negative integers. Ex: --range=1,100"
 	flag.StringVar(&rangeStr, "range", "", defStr)
 
-	defStr = "Specify generation algorithm. 1 for basic, 2 for Sieve of Eratosthenes, 3 for Segmented SoE. Ex: --algorithm=2"
+	defStr = "Specify generation algorithm. 1 for basic, 2 for Sieve of Eratosthenes, 3 for Segmented SoE. Ex: --algorithm=3. Default is 2."
 	algoPtr := flag.Int("algorithm", 2, defStr)
 
-	defStr = "Print results to stdout. Ex: --print=true"
+	defStr = "Print results to stdout. Ex: --print=true. Default is false."
 	printPtr := flag.Bool("print", true, defStr)
 
-	defStr = "Validate results. Ex: --validate=true"
+	defStr = "Validate results. Ex: --validate=true. Default is false."
 	validPtr := flag.Bool("validate", false, defStr)
 
-	defStr = "Parallel execution. Ex: --parallel=true"
+	defStr = "Parallel execution. Ex: --parallel=true. Default is false."
 	parPtr := flag.Bool("parallel", false, defStr)
 
 	flag.Parse()
