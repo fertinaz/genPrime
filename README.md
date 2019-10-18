@@ -3,8 +3,8 @@
 This small piece of code detects prime numbers in a given range. 
 ```
 $ genPrime --range=20,40 --algorithm=1 
-Elapsed time: 3.868µs for range: [20,40] using algorithm: 1 
-List of prime numbers: [23 29 31 37] 
+        Elapsed time: 3.868µs for range: [20,40] using algorithm: 1 
+        List of prime numbers: [23 29 31 37] 
 ```
 
 ## Compile and install 
@@ -27,14 +27,32 @@ you should be able to run the command below successfully:
 ```
 $ genPrime --help
 ```
-Alternatively you can try following command as well, but it is sloppy and 
-error prone:
+This command prints usage information with explaining options and their
+default values. 
 ```
-$ go run genPrime.go parseFlags.go basic.go eratosthenes.go sse.go validate.go --range=1,100 --algorithm=1
+Usage of genPrime:
+  -algorithm int
+        Specify generation algorithm. 1 for basic, 2 for Sieve of Eratosthenes, 3 for Segmented SoE. Ex: --algorithm=3. Default is 2. (default 2)
+  -parallel
+        Parallel execution. Ex: --parallel=true. Default is false.
+  -print
+        Print results to stdout. Ex: --print=true. Default is false.
+  -range string
+        Input range should be non-negative integers. Ex: --range=1,100
+  -validate
+        Validate results. Ex: --validate=true. Default is false.
 ```
 
 ## Run
-Sample usage:
+Sample usage in the shortest form:
+```
+$ genPrime -range=35,75 
+Elapsed time: 6.316µs for range: [35,75] using algorithm: 2 
+        Number of primes: 10 
+        Largest prime: 73 
+```
+
+One can specify other options as well:
 ```
 $ genPrime --range=10,200 \
   --algorithm=1    \
