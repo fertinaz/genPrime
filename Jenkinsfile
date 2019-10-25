@@ -6,7 +6,7 @@ pipeline {
                 sh 'go install'
             }
         }
-        stage('build') {
+        stage('test') {
             steps {
                 sh 'go test -v'
             }
